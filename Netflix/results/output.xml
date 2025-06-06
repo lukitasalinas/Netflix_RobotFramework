@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.2.2 (Python 3.13.3 on win32)" generated="2025-06-06T16:06:16.826192" rpa="false" schemaversion="5">
+<suite id="s1" name="Specs" source="C:\Users\luzadrianas\OneDrive - DS Group S.p.A\Desktop\ATM\Netflix_RobotFramework-main\Netflix\specs\specs.robot">
+<kw name="Open Browser" owner="SeleniumLibrary" type="SETUP">
+<msg time="2025-06-06T16:06:17.146238" level="INFO">Opening browser 'Chrome' to base url 'https://www.netflix.com/it/LoginHelp'.</msg>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-06-06T16:06:17.145981" elapsed="10.826264"/>
+</kw>
+<test id="s1-t1" name="Valid Request with Registered Email - Netflix" line="14">
+<kw name="Maximize Browser Window" owner="SeleniumLibrary" type="SETUP">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-06-06T16:06:27.975285" elapsed="0.055713"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-06-06T16:06:28.031986" level="INFO">Typing text 'agudelosanti19@gmail.com' into text field 'name=email'.</msg>
+<arg>name=email</arg>
+<arg>${EMAIL_VALIDO}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-06T16:06:28.031484" elapsed="0.261445"/>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<msg time="2025-06-06T16:06:28.293947" level="INFO">Clicking button 'xpath=//button[@data-uia="emailMeButton"]'.</msg>
+<arg>xpath=//button[@data-uia="emailMeButton"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="PASS" start="2025-06-06T16:06:28.293451" elapsed="0.124553"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<msg time="2025-06-06T16:06:30.419378" level="INFO">Slept 2 seconds.</msg>
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="PASS" start="2025-06-06T16:06:28.418468" elapsed="2.001186"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>istruzioni per la reimpostazione della password</arg>
+<arg>timeout=20s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="PASS" start="2025-06-06T16:06:30.420368" elapsed="0.028526"/>
+</kw>
+<doc>Given I am a registered user and have entered my correct email, when I request to reset my password, then the system sends me an email with a link valid for 1 hour and usable once.</doc>
+<status status="PASS" start="2025-06-06T16:06:27.973045" elapsed="2.476302"/>
+</test>
+<test id="s1-t2" name="Invalid Email Shows Generic Response - Netflix" line="21">
+<kw name="Maximize Browser Window" owner="SeleniumLibrary" type="SETUP">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-06-06T16:06:30.451059" elapsed="0.005682"/>
+</kw>
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-06-06T16:06:30.457648" level="INFO">Typing text 'lukitasalinas@hotmail.com' into text field 'name=email'.</msg>
+<msg time="2025-06-06T16:06:30.669216" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-14.png"&gt;&lt;img src="selenium-screenshot-14.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-06-06T16:06:30.669437" level="FAIL">Element with locator 'name=email' not found.</msg>
+<arg>name=email</arg>
+<arg>${EMAIL_INVALIDO}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="FAIL" start="2025-06-06T16:06:30.457279" elapsed="0.216488">Element with locator 'name=email' not found.</status>
+</kw>
+<kw name="Click Button" owner="SeleniumLibrary">
+<arg>xpath=//button[@data-uia="emailMeButton"]</arg>
+<doc>Clicks the button identified by ``locator``.</doc>
+<status status="NOT RUN" start="2025-06-06T16:06:30.674316" elapsed="0.000124"/>
+</kw>
+<kw name="Sleep" owner="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" start="2025-06-06T16:06:30.675148" elapsed="0.000071"/>
+</kw>
+<kw name="Wait Until Page Contains" owner="SeleniumLibrary">
+<arg>Se l'indirizzo email è registrato</arg>
+<arg>timeout=20s</arg>
+<doc>Waits until ``text`` appears on the current page.</doc>
+<status status="NOT RUN" start="2025-06-06T16:06:30.675532" elapsed="0.000044"/>
+</kw>
+<doc>Given I enter an email not registered, when I request password reset, the system shows a generic message without revealing registration.</doc>
+<status status="FAIL" start="2025-06-06T16:06:30.450515" elapsed="0.225480">Element with locator 'name=email' not found.</status>
+</test>
+<kw name="Close Browser" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-06-06T16:06:30.677557" elapsed="2.274688"/>
+</kw>
+<status status="FAIL" start="2025-06-06T16:06:16.827354" elapsed="16.125318"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat name="Specs" id="s1" pass="1" fail="1" skip="0">Specs</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
